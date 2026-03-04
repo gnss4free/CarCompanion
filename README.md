@@ -1,6 +1,6 @@
-# 🚗 CarCompanion - GNSS4Free Project
+# 🚗 CarCompanion - Проект GNSS4Free
 
-[🇷🇺 Русский](#-карcompanion---проект-gnss4free) | [🇬🇧 English](#-carcompanion---gnss4free-project-1)
+[🇷🇺 Русский](#-carcompanion---проект-gnss4free) | [🇬🇧 English](#-carcompanion---gnss4free-project-1)
 
 ---
 
@@ -10,7 +10,7 @@
 
 **CarCompanion** — это мобильное приложение на базе Android, которое преобразует смартфон в цифрового ассистента (компаньона) для автомобильных информационных систем на базе Android.
 
-### 🎯 Текущая функциональность (Этап 1)
+### 🎯 Текущая функциональность
 
 Первый релиз реализует две ключевые функции:
 
@@ -21,7 +21,7 @@
 
 2. **Передача геокоординат**
    - Активируется при наличии в сети системы-потребителя (в остальных случаях не тратится энергия на передачу данных "вхолостую")
-   - Система-провайдер(как правило, телефон с GNSS-чипом) отправляет геоданные (геолокацию) по локальной сети системам-потребителям (автомобилю)
+   - Система-провайдер(как правило, телефон с GNSS-чипом) отправляет геоданные (геолокацию) по локальной сети системам-потребителям (автомобилю без GNSS-чипа)
    - Система-получатель получая данные о геолокации делает их доступными Android-приложениям через функциональность ОС "Приложение для фиктивных положений"
 
 ### 📋 Предпосылки проекта
@@ -32,7 +32,7 @@
 
 ### 🔧 Почему именно CarCompanion?
 
-На рынке уже существуют подобные решения, однако они имеют те или иные недостатки: они либо устарели, либо имеют сложный в настройке интерфейс, либо требуют внешних систем, автоматизирующих их использование (типа Macrodroid или Tasker).  В любом случае, мне было просто интересно разработать систему, используя современные технологии программирования и которая устроила бы лично меня.
+На рынке уже существуют подобные программные решения, однако они имеют те или иные недостатки: они либо устарели, либо имеют сложный в настройке интерфейс, либо требуют внешних систем, автоматизирующих их использование (типа Macrodroid или Tasker). В любом случае, мне было просто интересно разработать систему, используя современные технологии программирования и которая устроила бы лично меня.
 
 ### ✨ Ключевые преимущества CarCompanion
 
@@ -48,30 +48,16 @@
    - Эффективный **Бинарный протокол**
    - Минимальная задержка при передаче данных
 
+#### 4. **Не требует вложений**
+   - Программа бесплатна для частного использования
+   - Не требуется преобретать дополнительные устройства/модули, выполнять аппаратную доработку автомобиля
+   - Идеально, чтобы "попробовать"
+
 ### 📊 Технические параметры
-
-- **Платформа:** Android (минимальная версия: TBD)
-- **Языки программирования:** Java/Kotlin
-- **Лицензия:** GNU General Public License v3.0
-- **Статус:** Активная разработка
+- **Платформа для Провайдера:** система на базе Android 6.0 и выше (API 25)
+- **Платформа для Потребителя:** система на базе Android 6.0 и выше (API 25), открытый доступ к настройкам разработчика
+- **Статус:** Публичная бета-версия
 - **Репозиторий:** https://github.com/gnss4free/CarCompanion
-
-### 🚀 Roadmap
-
-- [x] Этап 1: Базовая функциональность (GNSS + интернет)
-- [ ] Этап 2: Расширенные функции (OBD-II интеграция, расширенная телеметрия)
-- [ ] Этап 3: Веб-интерфейс и облачная синхронизация
-- [ ] Этап 4: Поддержка iOS и Web-версий
-
-### 📚 Документация
-
-- [Архитектура проекта](docs/ARCHITECTURE.md)
-- [Установка и настройка](docs/INSTALLATION.md)
-- [Как контрибьютить](docs/CONTRIBUTING.md)
-
-### 📄 Лицензия
-
-Проект распространяется под лицензией **GNU General Public License v3.0**. Подробности в файле [LICENSE](LICENSE).
 
 ---
 
@@ -81,88 +67,55 @@
 
 **CarCompanion** is an Android mobile application that transforms a smartphone into a digital assistant (companion) for Android-based car information systems.
 
-The application is designed to make a mobile phone a full-fledged assistant to a vehicle through wireless connectivity, providing data exchange and services between the phone and the car's infotainment system.
-
-### 🎯 Current Functionality (Phase 1)
+### 🎯 Current Functionality
 
 The first release implements two key features:
 
 1. **Automatic Internet Sharing**
-   - Automatic activation of the HotSpot (Wi-Fi access point) on the phone
    - Triggered upon Bluetooth connection with the vehicle
+   - Automatically activates the HotSpot (Wi-Fi access point) on the phone
    - Provides internet connectivity for the car's information system
 
 2. **GNSS Coordinates Broadcasting**
-   - Transmission of GNSS data (geolocation) over the local network
-   - Broadcasting GPS coordinates from the phone to the consumer (vehicle system)
-   - Uses local network protocol for data exchange
+   - Activated only when a consumer system is present in the network (no wasted energy on idle data transmission)
+   - Provider system (typically a phone with GNSS chip) sends geolocation data over the local network to consumer systems (vehicle without GNSS chip)
+   - Consumer system receives geolocation data and makes it available to Android applications through the OS functionality "Mock Location Provider"
 
-### 📋 Project Prerequisites
+### 📋 Project Motivation
 
-Chinese vehicles for the global market, particularly for the CIS region, are often shipped without full Infotainment functionality. Most such vehicles lack:
-- **Telematics module** (internet-based management and control)
+Chinese vehicles for the global market, particularly for the CIS region, are often shipped without full functionality in the infotainment area. Most such vehicles lack:
+- **Telematics module** (internet connectivity, management and control)
 - **Built-in GPS module** and navigation unit
-
-**CarCompanion** solves these fundamental problems:
-- ✅ Shares internet from smartphone to vehicle
-- ✅ Provides navigation apps with GPS coordinates from the smartphone
-- ✅ Automates the entire process without complex manual configuration
 
 ### 🔧 Why CarCompanion?
 
-Similar solutions already exist on the market, but they have the following drawbacks:
-
-| Problem | CarCompanion |
-|---------|-------------|
-| **Outdated applications** | Modern code with current Android APIs |
-| **Complex interface** | ✅ **Simple and concise UI** |
-| **Dependency on external systems** | ✅ **No need for Tasker, Macrodroid, etc.** |
-| **Connection instability** | ✅ **Reliable logic thanks to FSM** |
-| **Poor performance** | ✅ **Maximum performance** |
+Similar solutions already exist on the market, but they have various drawbacks: they are either outdated, have a complex interface to configure, or require external systems to automate their use (such as Macrodroid or Tasker). In any case, I found it simply interesting to develop a system using modern programming technologies and one that would suit me personally.
 
 ### ✨ Key Advantages of CarCompanion
 
 #### 1. **Simple and Concise Interface**
    - Minimalist design
-   - Intuitive navigation
-   - Easy to enable/disable features with a single tap
+   - Intuitive setup that doesn't require entering IP addresses, network interface names, and the like
 
 #### 2. **Reliable Operation Logic**
-   - Uses **FSM** (Finite State Machine)
-   - Strict state management
+   - Uses **FSM** (Finite State Machine) for managing application state
    - Efficient and predictable algorithm for establishing "Provider ↔ Consumer" connection
-   - Eliminates race conditions and instability
 
 #### 3. **Maximum Performance**
-   - **Binary protocol** instead of text formats (less data, higher speed)
-   - Modern concurrent programming methods
-   - Optimized battery resource usage
+   - Efficient **Binary protocol**
    - Minimal latency in data transmission
+
+#### 4. **No Investment Required**
+   - The application is free for personal use
+   - No need to purchase additional devices/modules or perform hardware modifications to the vehicle
+   - Perfect for "trying it out"
 
 ### 📊 Technical Parameters
 
-- **Platform:** Android (minimum version: TBD)
-- **Programming Languages:** Java/Kotlin
-- **License:** GNU General Public License v3.0
-- **Status:** Active Development
+- **Platform for Provider:** Android 6.0 (API 25)
+- **Platform for Consumer:** Android 6.0 (API 25), developer options
+- **Status:** Public beta
 - **Repository:** https://github.com/gnss4free/CarCompanion
-
-### 🚀 Roadmap
-
-- [x] Phase 1: Basic functionality (GNSS + Internet sharing)
-- [ ] Phase 2: Advanced features (OBD-II integration, extended telemetry)
-- [ ] Phase 3: Web interface and cloud synchronization
-- [ ] Phase 4: iOS and Web version support
-
-### 📚 Documentation
-
-- [Project Architecture](docs/ARCHITECTURE.md)
-- [Installation and Setup](docs/INSTALLATION.md)
-- [Contributing Guide](docs/CONTRIBUTING.md)
-
-### 📄 License
-
-The project is distributed under the **GNU General Public License v3.0**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
