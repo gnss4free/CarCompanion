@@ -1,6 +1,6 @@
 # 🚗 CarCompanion - Проект GNSS4Free
 
-[🇷🇺 Русский](#-carcompanion---проект-gnss4free) | [🇬🇧 English](#-carcompanion---gnss4free-project-1)
+[🇷🇺 Русский](#-carcompanion---проект-gnss4free) | [🇬🇧 English](#-carcompanion---gnss4free-project)
 
 ---
 
