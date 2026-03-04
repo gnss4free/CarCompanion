@@ -53,9 +53,9 @@
    - Не требуется преобретать дополнительные устройства/модули, выполнять аппаратную доработку автомобиля
    - Идеально, чтобы "попробовать"
 
-### 📊 Технические параметры
-- **Платформа для Провайдера:** система на базе Android 6.0 и выше (API 25)
-- **Платформа для Потребителя:** система на базе Android 6.0 и выше (API 25), открытый доступ к настройкам разработчика
+### 📊 Технические требования
+- **Платформа для Провайдера:** система на базе Android 6.0 и выше (API 23), для управления HotSpot требуется программа Macrodroid Connectivity Helper
+- **Платформа для Потребителя:** система на базе Android 6.0 и выше (API 23), открытый доступ к настройкам разработчика
 - **Статус:** Публичная бета-версия
 - **Репозиторий:** https://github.com/gnss4free/CarCompanion
 
@@ -110,13 +110,12 @@ Similar solutions already exist on the market, but they have various drawbacks: 
    - No need to purchase additional devices/modules or perform hardware modifications to the vehicle
    - Perfect for "trying it out"
 
-### 📊 Technical Parameters
+### 📊 Technical Requirements
 
-- **Platform for Provider:** Android 6.0 (API 25)
-- **Platform for Consumer:** Android 6.0 (API 25), developer options
+- **Platform for Provider:** Android 6.0 (API 23), requires an additional application for HotSpot management (MacroDroid Connectivity Helper)
+- **Platform for Consumer:** Android 6.0 (API 23), requires Developer options to be enabled for Mock Location management. 
 - **Status:** Public beta
 - **Repository:** https://github.com/gnss4free/CarCompanion
 
 ---
 
-**Made with ❤️ by the gnss4free team**
