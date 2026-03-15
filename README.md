@@ -1,18 +1,16 @@
 # 🚗 CarCompanion - Проект GNSS4Free
 
-[🇷🇺 Русский](#-carcompanion---проект-gnss4free) | [🇬🇧 English](#-carcompanion---gnss4free-project)
+[Русский](#-carcompanion---проект-gnss4free) | [English](#-carcompanion---gnss4free-project)
 
 ---
 
-## 🇷🇺 CarCompanion - Проект GNSS4Free
+## CarCompanion - Проект GNSS4Free
 
 ### 📱 Описание проекта
 
-**CarCompanion** — это мобильное приложение на базе Android, которое преобразует смартфон в цифрового ассистента (компаньона) для автомобильных информационных систем на базе Android.
+**CarCompanion** — это мобильное приложение на базе Android, которое преобразует смартфон в цифрового ассистента (компаньона) для автомобильных информационных систем на базе Android по образу и подобию Android Auto.
 
 ### 🎯 Текущая функциональность
-
-Первый релиз реализует две ключевые функции:
 
 1. **Автоматическая раздача интернета**
    - Активируется при подключении автомобиля через Bluetooth
@@ -24,17 +22,18 @@
    - Система-провайдер(как правило, телефон с GNSS-чипом) отправляет геоданные (геолокацию) по локальной сети системам-потребителям (автомобилю без GNSS-чипа)
    - Система-получатель получая данные о геолокации делает их доступными Android-приложениям через функциональность ОС "Приложение для фиктивных положений"
 
-### 📋 Предпосылки проекта
+3. **Передача буфера обмена и текста**
+   - Активируется выделение текста в любом приложении и выбором в диалоге "Поделиться/Share" приложения Car Companion
+   - Активируется выбором в шторке уведомления команды "Отправить буфер" при условии, что в буфере обмена есть текст
+   - Система-потребитель получает переданный текст (отражается в карточке "Сообщения") и автоматически размещает его в буфере обмена своей системы
+
+### Предпосылки проекта
 
 Китайские автомобили для глобального рынка, в особенности для рынка СНГ, часто поставляются без полной функциональности в информационно-развлекательной области (Infotainment). Большинство таких автомобилей лишены:
 - **Телематического блока** (подключение к интернету, управление и контроль)
 - **Встроенного GPS-модуля** и блока навигации
 
-### 🔧 Почему именно CarCompanion?
-
-На рынке уже существуют подобные программные решения, однако они имеют те или иные недостатки: они либо устарели, либо имеют сложный в настройке интерфейс, либо требуют внешних систем, автоматизирующих их использование (типа Macrodroid или Tasker). В любом случае, мне было просто интересно разработать систему, используя современные технологии программирования и которая устроила бы лично меня.
-
-### ✨ Ключевые преимущества CarCompanion
+### Преимущества CarCompanion
 
 #### 1. **Простой и лаконичный интерфейс**
    - Минималистичный дизайн
@@ -53,7 +52,7 @@
    - Не требуется преобретать дополнительные устройства/модули, выполнять аппаратную доработку автомобиля
    - Идеально, чтобы "попробовать"
 
-### 📊 Технические требования
+### Технические требования
 - **Платформа для Провайдера:** система на базе Android 6.0 и выше (API 23), для управления HotSpot требуется программа Macrodroid Connectivity Helper
 - **Платформа для Потребителя:** система на базе Android 6.0 и выше (API 23), открытый доступ к настройкам разработчика
 - **Статус:** Публичная бета-версия
@@ -61,15 +60,13 @@
 
 ---
 
-## 🇬🇧 CarCompanion - GNSS4Free Project
+## CarCompanion - GNSS4Free Project
 
-### 📱 Project Description
+### Project Description
 
-**CarCompanion** is an Android mobile application that transforms a smartphone into a digital assistant (companion) for Android-based car information systems.
+**CarCompanion** is an Android mobile application that transforms a smartphone into a digital assistant (companion) for Android-based car information systems on Android Auto manner.
 
-### 🎯 Current Functionality
-
-The first release implements two key features:
+### Current Functionality
 
 1. **Automatic Internet Sharing**
    - Triggered upon Bluetooth connection with the vehicle
@@ -81,17 +78,18 @@ The first release implements two key features:
    - Provider system (typically a phone with GNSS chip) sends geolocation data over the local network to consumer systems (vehicle without GNSS chip)
    - Consumer system receives geolocation data and makes it available to Android applications through the OS functionality "Mock Location Provider"
 
-### 📋 Project Motivation
+3. **Clipboard and plain Text sending/receiving**
+   - Activates when user share Text via "Share" functionality of Android OS
+   - Activate wher user use action "Send Clipboard" via Notification action of Car Companion app
+   - System-consumer receive this message and copy it into system Clipboard for late use
+
+### Project Motivation
 
 Chinese vehicles for the global market, particularly for the CIS region, are often shipped without full functionality in the infotainment area. Most such vehicles lack:
 - **Telematics module** (internet connectivity, management and control)
 - **Built-in GPS module** and navigation unit
 
-### 🔧 Why CarCompanion?
-
-Similar solutions already exist on the market, but they have various drawbacks: they are either outdated, have a complex interface to configure, or require external systems to automate their use (such as Macrodroid or Tasker). In any case, I found it simply interesting to develop a system using modern programming technologies and one that would suit me personally.
-
-### ✨ Key Advantages of CarCompanion
+### Key Advantages of CarCompanion
 
 #### 1. **Simple and Concise Interface**
    - Minimalist design
@@ -110,7 +108,7 @@ Similar solutions already exist on the market, but they have various drawbacks: 
    - No need to purchase additional devices/modules or perform hardware modifications to the vehicle
    - Perfect for "trying it out"
 
-### 📊 Technical Requirements
+### Technical Requirements
 
 - **Platform for Provider:** Android 6.0 (API 23), requires an additional application for HotSpot management (MacroDroid Connectivity Helper)
 - **Platform for Consumer:** Android 6.0 (API 23), requires Developer options to be enabled for Mock Location management. 
